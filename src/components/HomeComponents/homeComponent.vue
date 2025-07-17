@@ -7,7 +7,7 @@ import Igor from '@/assets/img/igor.jpg'
         <div class="content">
             <div class="text">
                 <h1>Olá! Me chamo <span class="destaque">Igor Mascarenhas</span></h1>
-                <h2>Desenvolvedor <span class="destaque">Full stack</span></h2>
+                <h2>Desenvolvedor <span class="destaque">Full Stack</span></h2>
                 <div class="area-btn">
                     <button>Currículo</button>
                     <button>Entre em contato</button>
@@ -28,7 +28,7 @@ import Igor from '@/assets/img/igor.jpg'
     justify-content: space-evenly;
     align-items: center;
     color: var(--cor-principal-texto);
-    height: 60vh;
+    height: 75vh;
 }
 
 .content h1{
