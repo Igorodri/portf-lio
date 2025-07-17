@@ -1,0 +1,45 @@
+/*Fonte*/
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Outfit:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Quicksand:wght@300..700&display=swap');
+
+
+/*Reset*/
+:root{
+  --cor-fundo: #0d1117 ;
+  --cor-secundaria: #0570F9;
+  --cor-principal-texto: #f9f9f9;
+  --cor-secundaria-texto: #828282;
+  --cor-secundaria-pressionada: #378cfb;
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif;;
+}
+
+body{
+  background-color: var(--cor-fundo);
+}
+
+main{
+  display: flex;
+  justify-content: center;
+}
+
+.section-content{
+  width: 60%;
+}
+
+.title{
+    color: var(--cor-principal-texto);
+    font-size: 30px;
+}
+
+.texto{
+  text-align: center;
+  margin-top: 10px;
+  color: var(--cor-secundaria-texto);
+  font-weight: bold;
+}
