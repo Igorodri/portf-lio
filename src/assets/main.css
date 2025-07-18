@@ -34,8 +34,12 @@ main{
   align-items: center;
 }
 
-.section-content:not(:first-child){
-  margin-top: 170px;
+.section-content{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 150px;
 }
 
 .title{
@@ -50,3 +54,27 @@ main{
   font-weight: bold;
   margin: 10px 500px 10px 500px ;
 }
+
+/* Celulares Pequenos */
+@media (max-width: 360px) {
+
+}
+
+/* Celulares Padrões */
+@media (min-width: 361px) and (max-width: 768px) {
+
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  
+}
+
+/* Notebook */
+@media (min-width: 1025px) and (max-width: 1366px) {
+    .texto{
+      margin: 10px 300px 10px 300px ;
+    }
+}
+
+

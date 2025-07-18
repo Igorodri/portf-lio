@@ -1,5 +1,5 @@
 <template>
-    <section class="section-content" id="sobre">
+    <section class="section-content" id="sobre" v-scroll-reveal="{ delay: 500, origin: 'left' }">
 
             <h1 class="title">Sobre mim</h1>
 

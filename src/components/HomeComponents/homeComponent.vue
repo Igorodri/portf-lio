@@ -1,13 +1,72 @@
 <script setup>
 import Igor from '@/assets/img/igor.jpg'
+import { ref, onMounted } from 'vue';
+import ScrollReveal from 'scrollreveal';
+
+const h1Text = ref(null)
+const h2Text = ref(null)
+
+const nameText = ref(null)
+const cargoText = ref(null)
+
+function escreverTexto(elemento, texto, delay = 150) {
+  let i = 0;
+  const escrever = () => {
+    if (i < texto.length) {
+      elemento.textContent += texto.charAt(i);
+      i++;
+      setTimeout(escrever, delay);
+    }
+  };
+  escrever();
+}
+
+
+onMounted(() => {
+    ScrollReveal().reveal('.text', {
+    origin: 'left',
+    duration: 1000,
+    distance: '100px',
+  });
+
+    ScrollReveal().reveal('.area-img', {
+    origin: 'right',
+    duration: 1500,
+    distance: '60px',
+  });
+
+
+  setTimeout(() => {
+    if (h1Text.value && h2Text.value) {
+      escreverTexto(h1Text.value, 'Olá! Me chamo ');
+      setTimeout(() => {
+        escreverTexto(nameText.value, 'Igor Mascarenhas')
+      },2800)
+      setTimeout(() => {
+        escreverTexto(h2Text.value, 'Desenvolvedor ');
+      }, 6000); 
+    }
+    setTimeout(() => {
+        escreverTexto(cargoText.value, 'Full Stack')
+    }, 8800)
+  }, 800); 
+
+})
+
+onMounted(() => {
+
+})
+
+
+
 </script>
 
 <template>
     <section class="banner" id="banner">
         <div class="content">
             <div class="text">
-                <h1>Olá! Me chamo <span class="destaque">Igor Mascarenhas</span></h1>
-                <h2>Desenvolvedor <span class="destaque">Full Stack</span></h2>
+                <h1><span ref="h1Text"></span><span class="destaque" ref="nameText"></span></h1>
+                <h2><span ref="h2Text"></span> <span class="destaque" ref="cargoText"></span></h2>
                 <div class="area-btn">
                     <button>Currículo</button>
                     <button>Entre em contato</button>
@@ -28,7 +87,7 @@ import Igor from '@/assets/img/igor.jpg'
     justify-content: space-evenly;
     align-items: center;
     color: var(--cor-principal-texto);
-    height: 75vh;
+    margin: 70px 0px 70px 0px
 }
 
 .content h1{

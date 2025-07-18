@@ -1,5 +1,5 @@
 <template>
-    <header>
+    <header id="header">
         <div class="logo">
             <img :src="logo" alt="Logo do Portifólio">
         </div>
@@ -12,18 +12,22 @@
         </nav>
 
         <div class="area-btn">
-            <button>Fazer site</button>
+            <button>Construa seu Site</button>
         </div>
     </header>
 </template>
 
 <style scoped>
 header{
+    background-color: var(--cor-fundo);
     border-bottom: 2px solid var(--cor-secundaria);
-    padding: 15px 0px 15px 0px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    top: 0;
+    position: sticky;
+    z-index: 200;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 img{
@@ -35,7 +39,7 @@ img{
 nav span, a{
     text-decoration: none;
     color: var(--cor-principal-texto);
-    margin-right: 10px;
+    margin: 0px 10px 0px 10px;
     transition: 0.5s;
     font-weight: bold;
 }
@@ -66,5 +70,17 @@ nav span:hover{
 </style>
 
 <script setup>
-import logo from '@/assets/img/logo.png'
+import { onMounted } from 'vue';
+import logo from '@/assets/img/logo.png';
+import ScrollReveal from 'scrollreveal';
+
+onMounted(() => {
+    ScrollReveal().reveal('#header', {
+    origin: 'top',
+    duration: 2500,
+    distance: '100px',
+  });
+})
+
+
 </script>
