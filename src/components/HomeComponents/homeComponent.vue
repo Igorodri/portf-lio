@@ -3,19 +3,25 @@ import Igor from '@/assets/img/igor.jpg'
 import { ref, onMounted } from 'vue';
 import ScrollReveal from 'scrollreveal';
 
+const mostrarCursor = ref(true)
+const etapa = ref(0)
+
 const h1Text = ref(null)
 const h2Text = ref(null)
 
 const nameText = ref(null)
 const cargoText = ref(null)
 
-function escreverTexto(elemento, texto, delay = 150) {
+function escreverTexto(elemento, texto, delay = 150, etapaAtual = 0) {
+  etapa.value = etapaAtual
   let i = 0;
   const escrever = () => {
     if (i < texto.length) {
       elemento.textContent += texto.charAt(i);
       i++;
       setTimeout(escrever, delay);
+    } else {
+      mostrarCursor.value = false;
     }
   };
   escrever();
@@ -36,20 +42,24 @@ onMounted(() => {
   });
 
 
-  setTimeout(() => {
-    if (h1Text.value && h2Text.value) {
-      escreverTexto(h1Text.value, 'Olá! Me chamo ');
-      setTimeout(() => {
-        escreverTexto(nameText.value, 'Igor Mascarenhas')
-      },2800)
-      setTimeout(() => {
-        escreverTexto(h2Text.value, 'Desenvolvedor ');
-      }, 6000); 
-    }
+setTimeout(() => {
+  if (h1Text.value && h2Text.value) {
+    mostrarCursor.value = true;
+    escreverTexto(h1Text.value, 'Olá! Me chamo ', 150, 1);
     setTimeout(() => {
-        escreverTexto(cargoText.value, 'Full Stack')
-    }, 8800)
-  }, 800); 
+      mostrarCursor.value = true;
+      escreverTexto(nameText.value, 'Igor Mascarenhas', 150, 1);
+    }, 2500);
+    setTimeout(() => {
+      mostrarCursor.value = true;
+      escreverTexto(h2Text.value, 'Desenvolvedor ', 150, 2);
+    }, 5500);
+    setTimeout(() => {
+      mostrarCursor.value = true;
+      escreverTexto(cargoText.value, 'Full Stack', 150, 2);
+    }, 8500);
+  }
+}, 800);
 
 })
 
@@ -65,11 +75,21 @@ onMounted(() => {
     <section class="banner" id="banner">
         <div class="content">
             <div class="text">
-                <h1><span ref="h1Text"></span><span class="destaque" ref="nameText"></span></h1>
-                <h2><span ref="h2Text"></span> <span class="destaque" ref="cargoText"></span></h2>
+                <h1>
+                  <span ref="h1Text"></span><span class="destaque" ref="nameText"></span><span class="cursor" v-if="mostrarCursor && etapa === 1">|</span>
+                </h1>
+                <h2>
+                  <span ref="h2Text"></span><span class="destaque" ref="cargoText"></span><span class="cursor" v-if="mostrarCursor && etapa === 2">|</span>
+                </h2>
                 <div class="area-btn">
-                    <button>Currículo</button>
-                    <button>Entre em contato</button>
+                    <a href="src\documents\Currículo Igor Mascarenhas.pdf" download>
+                      <button>Currículo</button>
+                    </a>
+                    
+                    <a href="https://wa.me/5571984332793" target="_blank">
+                      <button>Entre em contato</button>
+                    </a>
+                    
                 </div>
             </div>
 
@@ -87,7 +107,7 @@ onMounted(() => {
     justify-content: space-evenly;
     align-items: center;
     color: var(--cor-principal-texto);
-    margin: 70px 0px 70px 0px
+    margin: 140px 0px 70px 0px
 }
 
 .content h1{
@@ -130,5 +150,9 @@ onMounted(() => {
     transition: 0.2s;
     transform: scale(1.1);
     transition: 0.2s;
+}
+
+.cursor{
+  color: var(--cor-secundaria);
 }
 </style>

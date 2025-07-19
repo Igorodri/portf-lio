@@ -39,7 +39,14 @@ main{
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: 150px;
+}
+
+.section-content:not(:first-child){
+    margin-top: 250px;
+}
+
+.section-content:last-child{
+  padding-bottom: 100px;
 }
 
 .title{

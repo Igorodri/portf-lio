@@ -24,7 +24,7 @@
     border: 1px solid var(--cor-secundaria);
     border-radius: 5px;
     border-bottom-right-radius: 40px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
     width: 170px;
     margin: 20px;
     transition: transform 0.1s ease-out;
