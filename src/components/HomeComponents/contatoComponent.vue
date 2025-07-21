@@ -18,7 +18,7 @@ const contatos = [
 </script>
 
 <template>
-    <section class="section-content" v-scroll-reveal="{ delay: 500, origin: 'left' }">
+    <section class="section-content" v-scroll-reveal="{ delay: 500, origin: 'left' }" id="contato">
 
         <h1 class="title">Contato</h1>
 

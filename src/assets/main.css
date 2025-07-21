@@ -82,6 +82,11 @@ main{
     .texto{
       margin: 10px 300px 10px 300px ;
     }
+
+    .section-content:not(:first-child){
+    margin-top: 200px;
+    }
+
 }
 
 

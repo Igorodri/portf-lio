@@ -1,22 +1,39 @@
 <template>
-
-        <a :href="props.link">
-        <div class="box-contato" :id="props.id">
+    <a :href="props.link" target="_blank">
+        <div class="box-contato" :id="props.id" :class="classDinamic">
             <i :class="props.img"></i>
         </div>
-
-
-        </a>
-
-
+    </a>
 </template>
 
+<script setup>
+import { computed } from 'vue';
+
+const props = defineProps({
+    link: String,
+    img: String,
+    id: String
+})
+
+const classDinamic = computed(() => {
+    if (props.id === 'whatsapp') {
+        return 'whatsapp';
+    } else if (props.id === 'instagram') {
+        return 'instagram';
+    } else if (props.id === 'linkedin') {
+        return 'linkedin';
+    } else {
+        return 'github';
+    }
+})
+</script>
+
 <style scoped>
-a{
+a {
     text-decoration: none;
 }
 
-.box-contato{
+.box-contato {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,16 +48,28 @@ a{
     transition: 0.2s ease-in-out;
 }
 
-.box-contato:hover{
+.box-contato:hover {
     transform: scale(1.1);
     transition: 0.2s ease-in-out;
 }
 
-</style>
+.whatsapp:hover {
+    background-color: #25D366;
+    color: white;
+}
 
-<script setup>
-const props = defineProps({
-    link:String,
-    img:String
-})
-</script>
+.instagram:hover {
+    background-color: #C13584;
+    color: white;
+}
+
+.linkedin:hover {
+    background-color: #0077B5;
+    color: white;
+}
+
+.github:hover {
+    background-color: #333; 
+    color: white;
+}
+</style>

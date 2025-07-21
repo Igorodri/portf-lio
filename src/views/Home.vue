@@ -11,7 +11,6 @@ import contatoComponent from '@/components/HomeComponents/contatoComponent.vue';
     <main>
         <sobremimComponent/>
         <habilidadesComponent/>
-        <habilidadesComponent/>
         <contatoComponent/>
     </main>
     

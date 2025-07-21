@@ -155,4 +155,29 @@ onMounted(() => {
 .cursor{
   color: var(--cor-secundaria);
 }
+
+
+/* Celulares Pequenos */
+@media (max-width: 360px) {
+
+}
+
+/* Celulares Padrões */
+@media (min-width: 361px) and (max-width: 768px) {
+
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  
+}
+
+/* Notebook */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .content{
+    margin: 80px 0px 70px 0px;
+  }
+}
+
+
 </style>
