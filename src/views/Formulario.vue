@@ -1,3 +1,7 @@
+<script setup>
+import formularioSiteComponent from '@/components/FormularioComponents/formularioSiteComponent.vue';
+</script>
+
 <template>
-    <h1>Formulario</h1>
+    <formularioSiteComponent/>
 </template>

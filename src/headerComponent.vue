@@ -1,7 +1,7 @@
 <template>
     <header id="header">
         <div class="logo">
-            <img :src="logo" alt="Logo do Portifólio">
+            <RouterLink to="/"><img :src="logo" alt="Logo do Portifólio" class="logo"></RouterLink>
         </div>
 
         <nav>
@@ -12,7 +12,7 @@
         </nav>
 
         <div class="area-btn">
-            <button>Construa seu Site</button>
+            <RouterLink to="/formulario"><button>Construa seu Site</button></RouterLink>
         </div>
     </header>
 </template>
@@ -34,6 +34,15 @@ img{
     width: 100px;
     height: 100px;
     border-radius: 100%;
+}
+
+.logo{
+    transition: 0.2s;
+}
+
+.logo:hover{
+    transform: scale(1.1);
+    transition: 0.2s;
 }
 
 nav span, a{

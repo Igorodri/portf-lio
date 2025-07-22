@@ -63,11 +63,6 @@ setTimeout(() => {
 
 })
 
-onMounted(() => {
-
-})
-
-
 
 </script>
 
@@ -107,7 +102,7 @@ onMounted(() => {
     justify-content: space-evenly;
     align-items: center;
     color: var(--cor-principal-texto);
-    margin: 140px 0px 70px 0px
+    margin: 120px 0px 70px 0px
 }
 
 .content h1{
