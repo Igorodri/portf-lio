@@ -88,12 +88,11 @@ onMounted(() => {
         <div>
           <label for="tipo-site">Que tipo de site você quer?</label>
           <select v-model="tipoSite" id="tipo-site">
-            <option disabled value="">Selecione</option>
-            <option>Institucional</option>
-            <option>Loja virtual</option>
-            <option>Landing page</option>
-            <option>Blog</option>
-            <option>Outro</option>
+            <option disabled>Selecione</option>
+            <option value="institucional">Institucional</option>
+            <option value="loja_virtual">Loja virtual</option>
+            <option value="landing_page">Landing page</option>
+            <option value="outro">Outro</option>
           </select>
         </div>
 
@@ -115,10 +114,11 @@ onMounted(() => {
 
 <style scoped>
 .formulario-section {
-  margin: 50px 150px 0 150px;
+  margin: 50px;
   padding: 0 20px;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
   flex-wrap: wrap;
   gap: 2rem;
 }
@@ -126,7 +126,6 @@ onMounted(() => {
 .divContent {
   color: var(--cor-principal-texto);
   text-align: center;
-  margin-bottom: 2rem;
   max-width: 500px;
 }
 
