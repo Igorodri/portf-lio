@@ -1,5 +1,39 @@
 <script setup>
+import {ref} from 'vue'
 import boxProjetos from './subcomponents/boxProjetos.vue';
+import Toastify from 'toastify-js'
+import 'toastify-js/src/toastify.css'
+
+const projetos = ref([])
+
+async function listarProjetos() {
+    const response = await fetch(import.meta.env.VITE_URL_API+'/projetos',{
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+
+    const data = await response.json()
+
+    if(response.ok){
+        console.log('Projetos listados com sucesso!')
+        projetos.value = data
+    }else{
+        Toastify({
+            text: "Erro ao listar projetos, atualize a página",
+            close:true,
+            duration: 3000,
+            gravity: "top",
+            position: "right",
+            style: {
+                background: "linear-gradient(to right, #ff0000, #ec5353)"
+            }
+        }).showToast();
+    }
+}
+
+listarProjetos()
 </script>
 
 <template>
@@ -8,17 +42,14 @@ import boxProjetos from './subcomponents/boxProjetos.vue';
 
         
         <div class="area-projetos">
-            <boxProjetos
-                imageUrl="src/assets/img/techsallus.png"
-                title="Projeto Techsallus"
-                description="Sistema de gestão clínica com dashboard e automações."
-                link="https://techsallus.com"
-                videoUrl="https://www.youtube.com/embed/SEU_VIDEO_ID"
+            <boxProjetos v-for="(projeto,index) in projetos"
+                :key="index"
+                :imageUrl="projeto.imageUrl"
+                :title="projeto.title"
+                :description="projeto.descricao"
+                :link="projeto.link"
+                :videoUrl="projeto.videoUrl"
                 />
-
-            <boxProjetos image-url="src/assets/img/meeta.png"/>
-            <boxProjetos image-url="src/assets/img/techsallus.png"/>
-            <boxProjetos image-url="src/assets/img/meeta.png"/>
         </div>
     </section>
 </template>

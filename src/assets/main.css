@@ -42,7 +42,7 @@ main{
 }
 
 .section-content:not(:first-child){
-    margin-top: 250px;
+    margin-top: 200px;
 }
 
 .section-content:last-child{
