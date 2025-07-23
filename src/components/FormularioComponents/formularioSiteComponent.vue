@@ -1,6 +1,8 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import ScrollReveal from 'scrollreveal';
+import Toastify from 'toastify-js'
+import 'toastify-js/src/toastify.css'
 
 const mostrarCursor = ref(true)
 const etapa = ref(0)
@@ -28,6 +30,60 @@ function escreverTexto(elemento, texto, delay = 150, etapaAtual = 0) {
     }
   };
   escrever();
+}
+
+
+async function enviarFormulario() {
+  const response = await fetch(import.meta.env.VITE_URL_API + '/forms', {
+    method:'POST',
+    headers: {
+        'Content-Type':'application/json'
+    },
+    body: JSON.stringify({
+      nome: nome.value,
+      email: email.value,
+      telefone: telefone.value,
+      tipo_site: tipoSite.value,
+      objetivos: objetivos.value,
+      referencias: referencias.value
+    })
+    
+  })
+
+  const data = await response.json()
+
+  if(response.ok){
+     Toastify({
+      text: "Formulário enviado com sucesso! Aguarde uma resposta",
+      close:true,
+      duration: 3000,
+      gravity: "top",
+      position: "right",
+      style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)"
+      }
+  }).showToast();
+
+    nome.value = ''
+    email.value = ''
+    telefone.value = ''
+    tipoSite.value = ''
+    objetivos.value = ''
+    referencias.value = ''
+
+  }else{
+  Toastify({
+      text: "Erro ao enviar formulário, tente novamente",
+      close:true,
+      duration: 3000,
+      gravity: "top",
+      position: "right",
+      style: {
+          background: "linear-gradient(to right, #ff0000, #ec5353)"
+      }
+  }).showToast();
+}
+
 }
 
 
@@ -69,7 +125,7 @@ onMounted(() => {
     </div>
 
     <div class="area-form">
-      <form id="form-site" @submit.prevent="handleSubmit">
+      <form id="form-site" @submit.prevent="enviarFormulario">
         <div>
           <label for="nome">Nome completo</label>
           <input v-model="nome" type="text" id="nome" required />
@@ -82,7 +138,7 @@ onMounted(() => {
 
         <div>
           <label for="telefone">Telefone/WhatsApp</label>
-          <input v-model="telefone" type="tel" id="telefone" />
+          <input v-model="telefone" type="tel" id="telefone" required/>
         </div>
 
         <div>
@@ -92,6 +148,7 @@ onMounted(() => {
             <option value="institucional">Institucional</option>
             <option value="loja_virtual">Loja virtual</option>
             <option value="landing_page">Landing page</option>
+            <option value="sistema_web">Sistema Web</option>
             <option value="outro">Outro</option>
           </select>
         </div>
