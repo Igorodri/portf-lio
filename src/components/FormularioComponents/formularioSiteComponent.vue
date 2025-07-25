@@ -171,7 +171,7 @@ onMounted(() => {
 
 <style scoped>
 .formulario-section {
-  margin: 50px;
+  margin-top: 30px;
   padding: 0 20px;
   display: flex;
   flex-direction: column;

@@ -22,13 +22,11 @@
         </button>
 
         <div class="mobile_menu" ref="mobile_menu">
-            <RouterLink to="/geral"><span>MEETA</span></RouterLink>
-            <a href="#quemsomos"><span>Quem Somos</span></a>
-            <RouterLink to="/empresa"><span class="span_submenu">Nossa empresa</span></RouterLink>
-            <a href="#servico"><span>Nossos Serviços</span></a>
-            <a href="#projetos_preview"><span>Projetos Realizados</span></a>
-            <RouterLink to="/projetos"><span class="span_submenu">Todos os projetos</span></RouterLink>
-            <a href="#footer"><span>Contato</span></a>
+            <a href="#sobre"><span>Sobre mim</span></a>
+            <a href="#quemsomos"><span>Habilidades</span></a>
+            <a href="#projetos"><span>Projetos</span></a>
+            <a href="#contato"><span>Contato</span></a>
+            <RouterLink to="/formulario"><button>Construa seu Site</button></RouterLink>
         </div>
 
     </header>
@@ -75,13 +73,13 @@ nav span:hover{
     transition: 0.2s;
 }
 
-.area-btn button{
+.area-btn button, .mobile_menu button{
     width: 170px;
     border-radius: 10px;
     padding: 10px;
     background-color: var(--cor-secundaria);
     font-weight: bold;
-    color: white;
+    color: var(--cor-principal-texto);
     border: none;
     cursor: pointer;
     transition: 0.5s;
@@ -107,10 +105,11 @@ transition: all 0.3s ease;
     top: 90px;
     left: 0;
     width: 100%;
-    background-color: #ffffff;
+    background-color: var(--cor-fundo);
     display: none;
     transition: all 0.3s ease;
     z-index: 99;
+    border-bottom: 2px solid var(--cor-secundaria);
 }
 
 .btn-default_mobile{
@@ -129,8 +128,8 @@ transition: all 0.3s ease;
     }
 
     .btn-default_mobile:hover {
-        background-color: #fcda7c;
-        box-shadow: 0 4px 10px #fcda7c;
+        background-color: var(--cor-secundaria-pressionada);
+        box-shadow: 0 4px 10px var(--cor-secundaria-pressionada);
         transform: translateY(-2px);
     }
 
@@ -142,24 +141,6 @@ transition: all 0.3s ease;
 
     .mobile_menu{
         padding-bottom: 20px;
-    }
-
-    .mobile_menu input{
-        height: 40px;
-        width: 180px;
-        background-color: #FDCB3C;
-        border: none;
-        border-radius: 5px;
-        color: white;
-        text-align: center;
-        cursor: pointer;
-        transition: 0.5s;
-    }
-
-    .mobile_menu input:hover{
-        background-color: #FDCB3C;
-        transform: scale(1.01,1.01) translateY(3px);
-        transition: 0.5s;
     }
 
     .mobile_menu.active_mobile{
@@ -175,10 +156,11 @@ transition: all 0.3s ease;
         .mobile_menu a{
         text-decoration: none;
         font-weight: bold;
-        color: #5D5C5C;
+        color: var(--cor-principal-texto);
         transition: 0.2s;
         font-size: 14px;
         cursor: pointer;
+        margin-bottom: 5px;
     }
 
     .mobile_menu a:last-child{
@@ -186,25 +168,15 @@ transition: all 0.3s ease;
         }
 
     .mobile_menu a:hover{
-        color: #FDCB3C;
+        color: var(--cor-secundaria);
         transition: 0.2s;
         
     }
 
-/* Celulares Pequenos */
-@media (max-width: 360px) {
-.desktop, #btn_desktop{
-    display: none;
-}
 
-.btn-default_mobile{
-    display: block;
-}
-
-}
 
 /* Dispositivos Móveis */
-@media (min-width: 361px) and (max-width: 1024px) {
+@media (min-width: 300px) and (max-width: 1024px) {
 header{
     justify-content: space-between;
 }
@@ -218,13 +190,6 @@ header{
 }
 
 }
-
-
-/* Notebook */
-@media (min-width: 1025px) and (max-width: 1366px) {
-
-}
-
 
 </style>
 

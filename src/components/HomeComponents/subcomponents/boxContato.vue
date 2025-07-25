@@ -72,4 +72,11 @@ a {
     background-color: #333; 
     color: white;
 }
+
+/* Dispositivos móveis*/
+@media (min-width: 300px) and (max-width: 1024px) {
+    .box-contato {
+        margin: 15px;
+    }
+}
 </style>

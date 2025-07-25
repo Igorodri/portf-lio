@@ -102,11 +102,11 @@ setTimeout(() => {
     justify-content: space-evenly;
     align-items: center;
     color: var(--cor-principal-texto);
-    margin: 120px 0px 70px 0px
+    margin: 70px 0px 70px 0px
 }
 
 .content h1{
-    font-size: 45px;
+    font-size: 2.5rem;
 }
 
 .content h2{
@@ -151,26 +151,44 @@ setTimeout(() => {
 }
 
 
-/* Celulares Pequenos */
-@media (max-width: 360px) {
-
-}
-
 /* Celulares Padrões */
-@media (min-width: 361px) and (max-width: 768px) {
+@media (min-width: 300px) and (max-width: 1024px) {
+  .content{
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 70px 0px 70px 0px
+  }
 
-}
+  .content h1{
+    font-size: 28px;
+  }
 
-/* Tablet */
-@media (min-width: 769px) and (max-width: 1024px) {
-  
+  .content h2{
+    font-size: 20px;
+  }
+
+  .area-img img{
+    width: 300px;
+    border-radius: 100%;
+    border: 5px solid var(--cor-secundaria);
+  }
+
+  .area-btn{
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+
+  .area-btn button{
+    margin-right: 10px;
+  }
+
+
 }
 
 /* Notebook */
 @media (min-width: 1025px) and (max-width: 1366px) {
-  .content{
-    margin: 80px 0px 70px 0px;
-  }
+
 }
 
 

@@ -39,4 +39,26 @@ const contatos = [
     display: flex;
     margin-top: 50px;
 }
+
+
+/* Dispositivos móveis*/
+@media (min-width: 300px) and (max-width: 1024px) {
+    .area-contato{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+
+/* Notebook */
+@media (min-width: 1025px) and (max-width: 1366px) {
+    .texto{
+      margin: 10px 300px 10px 300px ;
+    }
+
+    .section-content:not(:first-child){
+    margin-top: 200px;
+    }
+
+}
 </style>
