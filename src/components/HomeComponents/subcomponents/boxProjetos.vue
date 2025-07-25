@@ -45,7 +45,9 @@ watch(showModal, val => {
           <h2>{{ title }}</h2>
           <p>{{ description }}</p>
           <a :href="link" target="_blank">Ver Projeto</a>
-          <button class="closeBtn" @click="closeModal">Fechar</button>
+          <div class="areaCloseBtn">
+            <button class="closeBtn" @click="closeModal">Fechar</button>
+          </div>
         </div>
       </div>
     </div>
@@ -94,9 +96,8 @@ watch(showModal, val => {
   background: var(--cor-fundo);
   display: flex;
   flex-direction: row;
-  max-width: 900px;
-  height: 500px;
-  width: 90%;
+  height: 400px;
+  max-width:1200px;
   padding: 20px;
   border-radius: 10px;
   gap: 20px;
@@ -106,13 +107,11 @@ watch(showModal, val => {
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .videoContainer iframe {
-  width: 100%;
-  height: 100%;
-  max-height: 400px;
+  width: 600px;
+  height: 340px;
   border-radius: 8px;
 }
 
@@ -125,6 +124,8 @@ watch(showModal, val => {
 
 .infoContainer h2 {
   margin-bottom: 10px;
+  color: var(--cor-secundaria);
+  font-size: 30px;
 }
 
 .infoContainer a {
@@ -133,12 +134,31 @@ watch(showModal, val => {
   text-decoration: underline;
 }
 
-.closeBtn {
-  margin-top: 30px;
-  padding: 8px 12px;
-  background: #ccc;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.infoContainer p{
+  color: var(--cor-principal-texto);
+  font-weight: bold;
 }
+
+.areaCloseBtn{
+  display: flex;
+  justify-content: end;
+}
+
+.closeBtn {
+    width: 150px;
+    background-color: var(--cor-fundo);
+    color: var(--cor-principal-texto);
+    padding: 7px;
+    border-radius: 10px;
+    border: 1px solid var(--cor-secundaria);
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.closeBtn:hover{
+    transition: 0.2s;
+    background-color: var(--cor-secundaria);
+}
+
 </style>

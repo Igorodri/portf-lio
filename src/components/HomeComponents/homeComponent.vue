@@ -144,7 +144,6 @@ setTimeout(() => {
 .area-btn button:hover{
     transition: 0.2s;
     transform: scale(1.1);
-    transition: 0.2s;
 }
 
 .cursor{
