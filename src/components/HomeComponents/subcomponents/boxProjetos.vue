@@ -161,4 +161,64 @@ watch(showModal, val => {
     background-color: var(--cor-secundaria);
 }
 
+/* Dispositivos móveis*/
+@media (min-width: 300px) and (max-width: 760px) {
+  .boxProject {
+    width: 90%;
+    height: 200px;
+  }
+
+    /* Modal */
+  .modalOverlay {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh; 
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; 
+  }
+
+  .modalContent {
+    background: var(--cor-fundo);
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+    max-width: 95%;
+    padding: 10px;
+    border-radius: 10px;
+    gap: 0px;
+  }
+
+  .videoContainer iframe {
+    width: 400px;
+    height: 180px;
+    border-radius: 8px;
+  }
+  
+  .infoContainer h2 {
+  margin-bottom: 10px;
+  color: var(--cor-secundaria);
+  font-size: 30px;
+  }
+
+}
+
+@media (min-width: 761px) and (max-width: 1024px){
+    .boxProject {
+    width: 600px;
+    height: 200px;
+  }
+}
+
+
+/* Notebook */
+@media (min-width: 1025px) and (max-width: 1366px) {
+
+}
+
+
 </style>

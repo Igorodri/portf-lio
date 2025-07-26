@@ -181,6 +181,8 @@ setTimeout(() => {
 
   .area-btn button{
     margin-right: 10px;
+    margin-left: 10px;
+    width: 140px;
   }
 
 
